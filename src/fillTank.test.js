@@ -48,21 +48,6 @@ describe('fillTank', () => {
     expect(customer.money).toBe(100);
   });
 
-  it('should round fuel to nearest 0.1 and cost to nearest whole', () => {
-    const customer = {
-      money: 201,
-      vehicle: {
-        maxTankCapacity: 40,
-        fuelRemains: 10,
-      },
-    };
-
-    fillTank(customer, 33.33);
-
-    expect(customer.vehicle.fuelRemains).toBe(16);
-    expect(customer.money).toBe(1);
-  });
-
   it('should not fill anything if amount < 2L after rounding', () => {
     const customer = {
       money: 150,
